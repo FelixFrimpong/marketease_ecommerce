@@ -8,6 +8,9 @@ import "./globals.css";
 //Theme provider
 import { ThemeProvider } from "next-themes";
 
+//Clerk provider
+import {ClerkProvider} from '@clerk/nextjs'
+
 //Fonts
 const interFont = Inter ({  subsets: ["latin"] });
 
@@ -30,6 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${barlowFont.variable} ${interFont.className}`}
@@ -46,5 +50,6 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
